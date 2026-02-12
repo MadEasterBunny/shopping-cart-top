@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 5px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navLinks a {
+    color: #fff;
+}
+
+.navLinks a.active {
+    text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #fff;
+    }
+
+    .navLinks a {
+        color: #000;
+    }
+
+    .navLinks.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
