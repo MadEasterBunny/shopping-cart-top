@@ -4,8 +4,6 @@ function Home() {
     return(
         <>
             <h1>Home Page</h1>
-            <Link to='/shop'>Shop</Link>
-            <Link to='/cart'>Cart</Link>
         </>
     )
 }
