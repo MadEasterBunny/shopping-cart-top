@@ -1,13 +1,13 @@
 import { Link } from "react-router"
 
-function Home() {
+function Cart() {
     return(
         <>
-            <h1>Home Page</h1>
+            <h1>Cart Page</h1>
+            <Link to='/'>Home</Link>
             <Link to='/shop'>Shop</Link>
-            <Link to='/cart'>Cart</Link>
         </>
     )
 }
 
-export default Home
+export default Cart

@@ -1,13 +1,13 @@
 import { Link } from "react-router"
 
-function Home() {
+function Shop() {
     return(
         <>
-            <h1>Home Page</h1>
-            <Link to='/shop'>Shop</Link>
+            <h1>Shop Page</h1>
+            <Link to='/'>Home</Link>
             <Link to='/cart'>Cart</Link>
         </>
     )
 }
 
-export default Home
+export default Shop
