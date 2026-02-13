@@ -1,0 +1,8 @@
+.container img {
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.container h3 {
+    font-size: 12px;
+}
