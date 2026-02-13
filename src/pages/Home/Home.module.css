@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.container div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+}
+
+.container div:first-of-type a {
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    outline: 2px solid #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.container div:first-of-type a:hover {
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #fff;
+    outline: 2px solid #000;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+}
