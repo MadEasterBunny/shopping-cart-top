@@ -13,14 +13,14 @@ export function CartProvider({ children }) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     }
 
-    const addToCart = (id, quantity) => {
+    const addToCart = (product, quantity) => {
         setCartItems(currItems => {
-            if(currItems.find(item => item.id === id) == null) {
-                return [...currItems, { id, quantity }]
+            if(currItems.find(item => item.id === product.id) == null) {
+                return [...currItems, { ...product, quantity }]
             } else {
                 return currItems.map(item => {
-                    if(item.id === id) {
-                        return { ...item, quantity: item.quantity + 1 }
+                    if(item.id === product.id) {
+                        return { ...item, quantity: item.quantity + quantity }
                     } else {
                         return item
                     }

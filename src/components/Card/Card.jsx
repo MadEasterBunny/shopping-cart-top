@@ -4,8 +4,8 @@ import { truncateText } from '../../utilities/textHelper';
 import { useCart } from "../../context/CartContext";
 
 function Card({ product }) {
-    const { id, image, title, description, price } = product;
-    const [count, setCount] = useState(0);
+    const { image, title, description, price } = product;
+    const [count, setCount] = useState(1);
     const { addToCart } = useCart();
 
     const increaseCount = () => {
@@ -13,13 +13,13 @@ function Card({ product }) {
     }
 
     const decreaseCount = () => {
-        if(count === 0) return;
+        if(count === 1) return;
         setCount(prevCount => prevCount - 1);
     }
 
-    const addToCartHandler = (id, count) => {
-        addToCart(id, count);
-        setCount(0);
+    const addToCartHandler = (product, count) => {
+        addToCart(product, count);
+        setCount(1);
     }
     
     return(
@@ -32,7 +32,7 @@ function Card({ product }) {
                 <p>{count}</p>
                 <button onClick={increaseCount}>+</button>
             </div>
-            <button onClick={() => addToCartHandler(id, count)}>Add to Cart</button>
+            <button onClick={() => addToCartHandler(product, count)}>Add to Cart</button>
         </div>
     )
 }
