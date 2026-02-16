@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Card.module.css'
+import { truncateText } from '../../utilities/textHelper';
 
 function Card({ product }) {
     const { image, title, description, price } = product;
@@ -15,10 +16,10 @@ function Card({ product }) {
     }
     
     return(
-        <div className={styles.container}>
+        <div className={styles.item}>
             <img src={image} alt={description} />
-            <h3>{title}</h3>
-            <p>Price: {price}</p>
+            <h3>{truncateText(title)}</h3>
+            <p>Price: ${price}</p>
             <div className={styles.itemsCounter}>
                 <button onClick={decreaseCount}>-</button>
                 <p>{count}</p>

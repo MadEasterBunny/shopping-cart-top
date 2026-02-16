@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router"
 import Card from "../../components/Card/Card";
 import styles from './Shop.module.css'
 
@@ -26,9 +25,6 @@ function Shop() {
 
         fetchProducts();
     }, [])
-
-    console.log(products);
-    console.log(error);
 
     return(
         <>
