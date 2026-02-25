@@ -1,0 +1,26 @@
+.container,
+.container > div {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.container > img {
+    max-width: 90px;
+}
+
+.container > h3 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}
