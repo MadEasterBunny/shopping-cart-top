@@ -1,26 +1,46 @@
-.container,
-.container > div {
+.container {
+    margin: 0 15px;
+}
+
+.item,
+.productInfo,
+.quantityControls {
     display: flex;
     justify-items: center;
     align-items: center;
     gap: 15px;
 }
 
-.container {
+.item {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.item,
+.productInfo {
     flex-direction: column;
 }
 
-.container > img {
+.productInfo {
+    flex-grow: 1;
+}
+
+.productInfo img {
     max-width: 90px;
 }
 
-.container > h3 {
+.productInfo h3 {
     text-align: center;
     font-size: 1rem;
 }
 
+.quantityControls, .removeBtn {
+    flex-shrink: 0;
+}
+
 @media screen and (min-width: 768px) {
-    .container {
+    .item,
+    .productInfo {
         flex-direction: row;
     }
 }

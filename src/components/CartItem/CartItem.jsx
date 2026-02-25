@@ -5,19 +5,27 @@ export const CartItem = () => {
     const { cartItems, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
 
     return (
-        <>
-            {cartItems.map(item => 
-                <div key={item.id} className={styles.container}>
-                    <img src={item.image} alt={item.title} />
-                    <h3>{item.title}</h3>
-                    <div>
-                        <button onClick={() => decreaseCartQuantity(item.id)}>-</button>
-                        <p>{item.quantity}</p>
-                        <button onClick={() => increaseCartQuantity(item.id)}>+</button>
+        <div className={styles.container}>
+            {cartItems.map(item => {
+                const itemTotal = (item.price * item.quantity).toFixed(2)
+                
+                return(
+                    <div key={item.id} className={styles.item}>
+                        <div className={styles.productInfo}>
+                            <img src={item.image} alt={item.title} />
+                            <h3>{item.title}</h3>
+                        </div>
+                        <div className={styles.quantityControls}>
+                            <button onClick={() => decreaseCartQuantity(item.id)}>-</button>
+                            <p>{item.quantity}</p>
+                            <button onClick={() => increaseCartQuantity(item.id)}>+</button>
+                        </div>
+                        <p>{itemTotal}</p>
+                        <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
-                    <button onClick={() => removeFromCart(item.id)}>Remove</button>
-                </div>
-            )}
-        </>
+                )
+            }
+        )}
+        </div>
     )
 }
