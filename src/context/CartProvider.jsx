@@ -8,20 +8,34 @@ export function CartProvider({ children }) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     }
 
-    const addToCart = (product, quantity) => {
+    const updateCartItem = (id, amount, productData = null) => {
         setCartItems(currItems => {
-            if(currItems.find(item => item.id === product.id) == null) {
-                return [...currItems, { ...product, quantity }]
+            if(currItems.find(item => item.id === id) == null) {
+                return [...currItems, productData ? { ...productData, quantity: amount } : {id, quantity: amount}]
+            } else if(currItems.find(item => item.id === id)?.quantity === 1) {
+                return currItems.filter(item => item.id !== id)
             } else {
                 return currItems.map(item => {
-                    if(item.id === product.id) {
-                        return { ...item, quantity: item.quantity + quantity }
+                    if(item.id === id) {
+                        return { ...item, quantity: item.quantity + amount }
                     } else {
                         return item
                     }
                 })
             }
         })
+    }
+
+    const addToCart = (product, quantity) => {
+        updateCartItem(product.id, quantity, product)
+    }
+
+    const increaseCartQuantity = (id) => {
+        updateCartItem(id, 1)
+    }
+
+    const decreaseCartQuantity = (id) => {
+        updateCartItem(id, -1)
     }
 
     const removeFromCart = (id) => {
@@ -32,8 +46,10 @@ export function CartProvider({ children }) {
 
     const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0);
 
+    const cartTotal = cartItems.reduce((total, item) => item.price * item.quantity + total, 0).toFixed(2);
+
     return(
-    <CartContext.Provider value={{ getItemQuantity, addToCart, removeFromCart, cartItems, cartQuantity }}>
+    <CartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, addToCart, removeFromCart, cartItems, cartQuantity, cartTotal }}>
         {children}
     </CartContext.Provider>
     )

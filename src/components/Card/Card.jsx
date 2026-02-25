@@ -26,7 +26,7 @@ function Card({ product }) {
         <div className={styles.item}>
             <img src={image} alt={description} />
             <h3>{truncateText(title)}</h3>
-            <p>Price: ${price}</p>
+            <p>Price: ${price.toFixed(2)}</p>
             <div className={styles.itemsCounter}>
                 <button onClick={decreaseCount}>-</button>
                 <p>{count}</p>
