@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import PacmanLoader from "react-spinners/PacmanLoader"
 import Card from "../../components/Card/Card";
 import styles from './Shop.module.css'
 
@@ -28,7 +29,11 @@ function Shop() {
 
     return(
         <>
-        {loading && <div>Loading...</div>}
+        {loading && (
+            <div className={styles.loaderContainer}>
+                <PacmanLoader color="#ffe737" size={25} speedMultiplier={2} loading={loading} />
+            </div>
+        )}
         {error && <div>Error loading content</div>}
         {!loading && !error && (
             <div>
