@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin: 15px;
 }
 
 .container div:first-of-type {
@@ -11,6 +12,7 @@
     align-items: flex-start;
     gap: 15px;
     text-align: left;
+    margin: 15px;
 }
 
 .container div:first-of-type a {
@@ -32,7 +34,7 @@
 
 img {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     border-radius: 15px;
 }
 

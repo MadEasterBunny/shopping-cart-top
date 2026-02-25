@@ -1,4 +1,3 @@
-import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import routes from './routes'
 import { CartProvider } from './context/CartProvider';

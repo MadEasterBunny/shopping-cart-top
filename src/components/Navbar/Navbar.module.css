@@ -1,5 +1,5 @@
 .navbar {
-    width: 95vw;
+    width: 100vw;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -11,6 +11,7 @@
     align-items: center;
     gap: 5px;
     margin: 0;
+    margin-right: 15px;
     padding: 0;
     list-style: none;
 }
@@ -28,12 +29,16 @@
 }
 
 @media screen and (max-width: 768px) {
+    .navbar:has(.open) {
+        background-color: #fff;
+    }
+
     .navLinks {
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 44px;
         left: 0;
         background-color: #fff;
     }
@@ -43,10 +48,16 @@
     }
 
     .navLinks.open {
+        min-height: 100vh;
         display: flex;
+    }
+
+    .navLinks.open > .hamburger {
+        background-color: #fff;
     }
 
     .hamburger {
         display: block;
+        z-index: 1;
     }
 }
