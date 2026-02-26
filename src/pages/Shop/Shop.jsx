@@ -1,31 +1,10 @@
-import { useEffect, useState } from "react"
+import { useProducts } from "../../context/ProductContext";
 import PacmanLoader from "react-spinners/PacmanLoader"
 import Card from "../../components/Card/Card";
 import styles from './Shop.module.css'
 
 function Shop() {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState();
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch('https://fakestoreapi.com/products');
-                if(!res.ok) {
-                    throw new Error(`Http error! Status: ${res.status}`);
-                }
-                const data = await res.json();
-                setProducts(data);
-            } catch (error) {
-                setError(error)
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        fetchProducts();
-    }, [])
+    const { products, loading, error } = useProducts();
 
     return(
         <>
