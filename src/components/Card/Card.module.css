@@ -27,3 +27,8 @@
     align-items: center;
     gap: 10px;
 }
+
+.itemsCounter p {
+    min-width: 24px;
+    text-align: center;
+}

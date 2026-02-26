@@ -12,7 +12,7 @@ function Cart() {
             
             <CartItem />
 
-            {cartQuantity !== 0 && <p>Total: {cartTotal}</p>}
+            {cartQuantity !== 0 && <p className={styles.totalContainer}>Total: {cartTotal}</p>}
         </>
     )
 }

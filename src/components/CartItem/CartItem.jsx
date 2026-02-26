@@ -20,7 +20,7 @@ export const CartItem = () => {
                             <p>{item.quantity}</p>
                             <button onClick={() => increaseCartQuantity(item.id)}>+</button>
                         </div>
-                        <p>{itemTotal}</p>
+                        <p className={styles.itemTotal}>{itemTotal}</p>
                         <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
                 )

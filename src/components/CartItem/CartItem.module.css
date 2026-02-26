@@ -26,7 +26,10 @@
 }
 
 .productInfo img {
+    width: 100%;
     max-width: 90px;
+    aspect-ratio: 1;
+    object-fit: contain;
 }
 
 .productInfo h3 {
@@ -38,9 +41,23 @@
     flex-shrink: 0;
 }
 
+.quantityControls p {
+    min-width: 24px;
+    text-align: center;
+}
+
+.itemTotal {
+    min-width: 60px;
+    text-align: center;
+}
+
 @media screen and (min-width: 768px) {
     .item,
     .productInfo {
         flex-direction: row;
+    }
+
+    .productInfo h3 {
+        text-align: left;
     }
 }
